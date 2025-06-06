@@ -1,3 +1,4 @@
+/* Reset margins, paddings, and box-sizing */
 * {
     margin: 0;
     padding: 0;
@@ -5,10 +6,14 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     background-color: #121212;
-    color: white;
+    color: #E5E5E5;
+    line-height: 1.6;
     transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -16,12 +21,14 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #1e1e1e;
+    background-color: #1f1f1f;
     border-bottom: 2px solid #444;
 }
 
 header .logo h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #66ff66;
 }
 
 header nav ul {
@@ -34,10 +41,10 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: white;
+    color: #E5E5E5;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 header nav ul li a:hover {
@@ -45,11 +52,7 @@ header nav ul li a:hover {
 }
 
 .theme-switcher {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
+    position: relative;
     cursor: pointer;
 }
 
@@ -58,10 +61,10 @@ header nav ul li a:hover {
 }
 
 .theme-switcher .slider {
-    width: 34px;
-    height: 20px;
+    width: 40px;
+    height: 22px;
     border-radius: 50px;
-    background-color: #ccc;
+    background-color: #888;
     position: relative;
     transition: background-color 0.3s;
 }
@@ -71,49 +74,61 @@ header nav ul li a:hover {
     position: absolute;
     top: 3px;
     left: 3px;
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background-color: white;
     transition: transform 0.3s;
 }
 
 .theme-switcher input:checked + .slider {
-    background-color: #4caf50;
+    background-color: #66ff66;
 }
 
 .theme-switcher input:checked + .slider::before {
-    transform: translateX(14px);
+    transform: translateX(18px);
 }
 
 main {
     padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    flex-grow: 1;
 }
 
-section {
-    margin-bottom: 40px;
+.section {
+    margin-bottom: 60px;
 }
 
-h2 {
-    font-size: 2rem;
+.section h2 {
+    font-size: 2.5rem;
     color: #66ff66;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.section p {
+    font-size: 1.1rem;
+    color: #E5E5E5;
+    line-height: 1.8;
 }
 
 footer {
-    background-color: #1e1e1e;
+    background-color: #1f1f1f;
     padding: 20px;
     text-align: center;
-    color: #ccc;
+    color: #888;
+    border-top: 2px solid #444;
 }
 
 footer p {
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
-/* Light theme styles */
 body.light {
-    background-color: #f0f0f0;
-    color: black;
+    background-color: #f5f5f5;
+    color: #121212;
 }
 
 body.light header {
@@ -122,9 +137,32 @@ body.light header {
 }
 
 body.light header nav ul li a {
-    color: black;
+    color: #121212;
 }
 
 body.light header nav ul li a:hover {
     color: #00b300;
+}
+
+/* Responsive design adjustments */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    header nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .theme-switcher {
+        position: static;
+        margin-top: 20px;
+    }
 }

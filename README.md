@@ -1,2 +1,2 @@
 # greynetwork.github.io
-GreyNet Collective a Linux ethical hacking community
+Grey Net Collective a Linux ethical hacking community
